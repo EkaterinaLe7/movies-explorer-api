@@ -9,12 +9,6 @@ const loginValidation = celebrate({
   }),
 });
 
-// const userIdValidation = celebrate({
-//   params: Joi.object().keys({
-//     userId: Joi.string().required().hex().length(24),
-//   }),
-// });
-
 const createUserValidation = celebrate({
   body: Joi.object().keys({
     name: Joi.string().min(2).max(30),
@@ -27,22 +21,8 @@ const updateUserValidation = celebrate({
   body: Joi.object().keys({
     name: Joi.string().required().min(2).max(30),
     email: Joi.string().required().email(),
-    // about: Joi.string().required().min(2).max(30),
   }),
 });
-
-// const updateAvatarValidation = celebrate({
-//   body: Joi.object().keys({
-//     avatar: Joi.string().required().pattern(regExp),
-//   }),
-// });
-
-// const createCardValidation = celebrate({
-//   body: Joi.object().keys({
-//     name: Joi.string().min(2).max(30).required(),
-//     link: Joi.string().required().pattern(regExp),
-//   }),
-// });
 
 const createMovieValidation = celebrate({
   body: Joi.object().keys({
@@ -68,11 +48,8 @@ const movieIdValidation = celebrate({
 
 module.exports = {
   loginValidation,
-  // userIdValidation,
   createUserValidation,
   updateUserValidation,
-  // updateAvatarValidation,
   movieIdValidation,
-  // createCardValidation,
   createMovieValidation,
 };

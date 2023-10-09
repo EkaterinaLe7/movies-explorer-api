@@ -8,33 +8,6 @@ const ConflictError = require('../errors/ConflictError');
 const { NODE_ENV, JWT_SECRET } = process.env;
 const SALT_ROUNDS = 10;
 
-// const getUsers = (req, res, next) => {
-//   User.find({})
-//     .then((users) => {
-//       res.status(200).send(users);
-//     })
-//     .catch(next);
-// };
-
-// const getUserById = (req, res, next) => {
-//   const { userId } = req.params;
-
-//   User.findById(userId)
-//     .then((user) => {
-//       if (!user) {
-//         return next(new NotFound('Пользователь не найден'));
-//       }
-//       return res.status(200).send(user);
-//     })
-//     .catch((err) => {
-//       if (err.name === 'CastError') {
-//         next(new BadRequest('Переданы некорректные данные'));
-//       } else {
-//         next(err);
-//       }
-//     });
-// };
-
 const getCurrentUser = (req, res, next) => {
   const userId = req.user._id;
   User.findById(userId)
@@ -107,27 +80,6 @@ const updateUser = (req, res, next) => {
     });
 };
 
-// const updateAvatar = (req, res, next) => {
-//   const { avatar } = req.body;
-//   const userId = req.user._id;
-
-//   User.findByIdAndUpdate(userId, { avatar }, { new: true, runValidators: true })
-//     .then((user) => {
-//       if (!user) {
-//         return next(new NotFound('Пользователь не найден'));
-//         // throw new NotFound('Пользователь не найден');
-//       }
-//       return res.status(200).send(user);
-//     })
-//     .catch((err) => {
-//       if (err.name === 'ValidationError' || err.name === 'CastError') {
-//         next(new BadRequest('Переданы некорректные данные'));
-//       } else {
-//         next(err);
-//       }
-//     });
-// };
-
 const login = (req, res, next) => {
   const { email, password } = req.body;
 
@@ -148,11 +100,8 @@ const login = (req, res, next) => {
 };
 
 module.exports = {
-  // getUsers,
-  // getUserById,
   createUser,
   updateUser,
-  // updateAvatar,
   login,
   getCurrentUser,
 };

@@ -12,7 +12,6 @@ const app = express();
 const { errors } = require('celebrate');
 const auth = require('./middlewares/auth');
 const usersRouter = require('./routes/users');
-// const cardRouter = require('./routes/cards');
 const movieRouter = require('./routes/movies');
 const { login, createUser } = require('./controllers/users');
 const errorHandler = require('./middlewares/errorHandler');
@@ -23,11 +22,6 @@ const NotFound = require('./errors/NotFound');
 const { loginValidation, createUserValidation } = require('./middlewares/validation');
 
 const { PORT = 3000, DB_ADRESS = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
-
-// mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
-//   useNewUrlParser: true,
-//   useUnifiedTopology: true,
-// });
 
 mongoose.connect(DB_ADRESS, {
   useNewUrlParser: true,
@@ -60,7 +54,6 @@ app.post('/signup', createUserValidation, createUser);
 app.use(auth);
 
 app.use(usersRouter);
-// app.use(cardRouter);
 app.use(movieRouter);
 
 app.use('*', (req, res, next) => {
