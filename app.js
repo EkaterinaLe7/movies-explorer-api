@@ -22,9 +22,9 @@ const NotFound = require('./errors/NotFound');
 
 const { loginValidation, createUserValidation } = require('./middlewares/validation');
 
-const { PORT = 3000, DB_ADRESS = 'mongodb://127.0.0.1:27017/bitfilmsdb1' } = process.env;
+const { PORT = 3000, DB_ADRESS = 'mongodb://127.0.0.1:27017/bitfilmsdb' } = process.env;
 
-// mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb1', {
+// mongoose.connect('mongodb://127.0.0.1:27017/bitfilmsdb', {
 //   useNewUrlParser: true,
 //   useUnifiedTopology: true,
 // });
