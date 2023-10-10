@@ -13,8 +13,4 @@ router.post('/movies', createMovieValidation, createMovie);
 
 router.delete('/movies/:movieId', movieIdValidation, deleteMovie);
 
-// router.put('/cards/:cardId/likes', cardIdValidation, likeCard);
-
-// router.delete('/cards/:cardId/likes', cardIdValidation, dislikeCard);
-
 module.exports = router;
